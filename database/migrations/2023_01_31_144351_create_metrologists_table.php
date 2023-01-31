@@ -7,29 +7,26 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * nom => Nombre de Empleado
-     * usr => Nombre unico de usuario
+     * nom => Nombre del Metrologo
+     * usr => Nombre unico del Metrologo
      * email => Correo Empresarial 
-     * rol => Cargo dentro de la empresa
      * est => Estado I o A
     */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('metrologists', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
             $table->string('usr')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('carg');
-            $table->string('est')->default('C');
-            // $table->rememberToken();
+            $table->string('est')->default('A');
             $table->timestamps();
         });
     }
-
+    
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('metrologists');
     }
 };
