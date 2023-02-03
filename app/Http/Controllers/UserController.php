@@ -68,7 +68,7 @@ class UserController extends Controller
             'carg' => $request->get('carg'),
         ]);
         $token = JWTAuth::fromUser($user);
-        $user->assignRole($request->role);
+        $user->givePermissionTo($request->permissions);
         return response()->json(compact('user','token'),201);
     }
 
