@@ -23,9 +23,10 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'coo', 'action' => 'Crear pedidos para servicio técnico.']);
         Permission::create(['name' => 'doo', 'action' => 'Cancelar pedido para servicio técnico.']);
         Permission::create(['name' => 'dboo', 'action' => 'Descartar Balanzas de pedidos.']);
-        Permission::create(['name' => 'ato', 'action' => 'Asignar tecnicos y fechas a pedidos.']);
+        Permission::create(['name' => 'ato', 'action' => 'Analizar y asignar técnicos para el Servicio y asignar Fechas.']);
         Permission::create(['name' => 'rmo', 'action' => 'Reenviar emails']);
         Permission::create(['name' => 'vro', 'action' => 'Ver repostes de trabajo.']);
+        Permission::create(['name' => 'ero', 'action' => 'Editar repostes de trabajo.']);
         Permission::create(['name' => 'aro', 'action' => 'Analizar reportes de trabajo.']);
         Permission::create(['name' => 'nfo', 'action' => 'Notificación de facturación']);
         // Permission::create(['name' => 'Gestión de usuarios'])->syncRoles([$role2]);
