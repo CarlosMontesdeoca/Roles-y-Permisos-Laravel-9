@@ -23,8 +23,17 @@ class UserTableSeeder extends Seeder
             'email' => 'laboratorio@precitrol.com', 
             'password' => $password, 
             'carg' => 'ADMINISTRADOR',
-        ])->syncPermissions(['coo','doo','dboo','ato','rmo','vro','aro','nfo']);
-
+        ])->syncPermissions([
+            'coo',
+            'doo',
+            'dboo',
+            'ato',
+            'rmo',
+            'vro',
+            'ero',
+            'aro',
+            'nfo'
+        ]);
         User::create([
             'nom' => 'KALKUMOTORO', 
             'usr' => 'metrologiaSrv', 

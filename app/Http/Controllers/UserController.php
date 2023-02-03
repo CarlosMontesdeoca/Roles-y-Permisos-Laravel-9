@@ -67,9 +67,9 @@ class UserController extends Controller
             'password' => Hash::make($request->get('password')),
             'carg' => $request->get('carg'),
         ]);
-        $token = JWTAuth::fromUser($user);
+        // $token = JWTAuth::fromUser($user);
         $user->givePermissionTo($request->permissions);
-        return response()->json(compact('user','token'),201);
+        return response()->json(compact('user'),201);
     }
 
     /**
