@@ -35,10 +35,10 @@ class UserController extends Controller
             } catch (JWTException $e) {
                 return response()->json('could_not_create_token', 500);
             }
-            $role = User::firstWhere('usr', $request->usr)->getRoleNames()[0];
+            $permissions = User::firstWhere('usr', $request->usr)->getPermissionNames();
             $id = User::firstWhere('usr', $request->usr)->id;
             $name = User::firstWhere('usr', $request->usr)->nom;
-            return response()->json(compact('id', 'role', 'name', 'token'));
+            return response()->json(compact('id', 'permissions', 'name', 'token'));
         }
     }
 
@@ -68,7 +68,7 @@ class UserController extends Controller
             'carg' => $request->get('carg'),
         ]);
         $token = JWTAuth::fromUser($user);
-        $user->assignRole($request->role);
+        $user->givePermissionTo($request->permissions);
         return response()->json(compact('user','token'),201);
     }
 
