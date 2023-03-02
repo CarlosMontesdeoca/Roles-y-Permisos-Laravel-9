@@ -21,6 +21,11 @@ class UserController extends Controller
     public function permissions(){
         return response()->json(PermissionResource::collection(DB::select('select * from permissions')), 200);
     }
+
+    public function change(User $user, Request $request){
+        $user->syncPermissions($request->permissions);
+        return response()->json('permissions changed success', 200);
+    }
     
     /**
      * @index permitir obtener todos los usuarios Activos y creados(sin aceptar terminos y condiciones)".
