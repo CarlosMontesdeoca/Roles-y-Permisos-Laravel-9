@@ -24,7 +24,8 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     /// ---------------------METROLOGOS..............................//
     Route::get('users', 'App\Http\Controllers\UserController@index');               ## ==> Listado de Usuarios Habilitados del sistema  
     Route::get('user', 'App\Http\Controllers\UserController@getAuthenticatedUser'); ## ==> Informacion del Usuario Logueado
-    Route::put('users/{user}', 'App\Http\Controllers\UserController@update');       ## ==> Editar un usuario existente
+    Route::put('users/{user}', 'App\Http\Controllers\UserController@update');       ## ==> Informacion del Usuario Logueado
+    Route::get('permissions', 'App\Http\Controllers\UserController@permissions');       ## ==> Editar un usuario existente
 
     // Route::group(['middleware' => ['role:admin|alter']], function () {
     Route::get('metrologists/avl', 'App\Http\Controllers\MetrologistController@avilMtr');          ## ==> Listado de Metrologos y sus Proyectos Pendientes

@@ -4,15 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Resources\UserResource;
+use App\Http\Resources\PermissionResource;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    /**
+     * @index permitir obtener todos los usuarios Activos y creados(sin aceptar terminos y condiciones)".
+     */
+    public function permissions(){
+        return response()->json(PermissionResource::collection(DB::select('select * from permissions')), 200);
+    }
+    
     /**
      * @index permitir obtener todos los usuarios Activos y creados(sin aceptar terminos y condiciones)".
      */
